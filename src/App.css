@@ -1,38 +1,67 @@
-.App {
+.app {
+  margin: 0em 2em 0em 2em;
+  width: 70%;
+  margin: auto;
+}
+
+h1 {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+li {
+  list-style-type: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+li:first-child {
+  list-style-type: "> ";
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.next-headline {
+  margin-top: 1em;
+  color: rgba(0, 0, 0, 0.3);
+}
+
+#typing-space {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-flow: row nowrap;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+#source-area, #input-area {
+  width: 50%;
+  border: 1px solid gray;
+  border-radius: 5px;
+  height: 20em;
+  margin: 0em 2em;
+  padding: 1em;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+#source-area {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
 }
+
+.stats {
+  text-align: right;
+  font-size: small;
+}
+
+.stats p {
+  margin: 0px;
+}
+
+.stats-value {
+  display: inline-block;
+  width: 3em;
+}
+
+.input-subrow {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  margin-top: 1em;
+}
+
+/* todo: learn about media queries to optimize for tablet and phone sized devices */
+
