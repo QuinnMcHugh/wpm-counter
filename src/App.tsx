@@ -1,13 +1,14 @@
 import React from 'react';
-import { PrimaryButton, DefaultButton } from '@fluentui/react';
-import { TextField } from '@fluentui/react';
+import { PrimaryButton, DefaultButton, TextField } from '@fluentui/react';
 import { Icon } from '@fluentui/react/lib/Icon';
 
 import { Timer } from './Timer';
+import { ShareModal } from './ShareModal';
 import './App.css';
 
 const MSN_RSS_URI = 'https://rss.msn.com/';
 const MSN_TITLE = 'MSN | Outlook, Office, Skype, Bing, Breaking News, and Latest Videos';
+const SHARE_PARAM = 's';
 
 interface RssResponse {
   nodeName: string;
@@ -36,13 +37,55 @@ function convertSecondsToTimestamp(seconds: number): string {
   return `${padWithZeros(numMinutes)}:${padWithZeros(numSeconds)}`;
 }
 
+function getQueryVariable(variable: string): string {
+  var query = window.location.search.substring(1);
+  var vars = query.split('&');
+  for (var i = 0; i < vars.length; i++) {
+      var pair = vars[i].split('=');
+      if (decodeURIComponent(pair[0]) == variable) {
+          return decodeURIComponent(pair[1]);
+      }
+  }
+  return "";
+}
+
 interface StatisticProps {
   label: string;
   value: string;
 }
 
+interface ShareMessageProps {
+  score: number;
+}
+
 const Statistic = (props: StatisticProps) => <p>{props.label}: <span className="stats-value">{props.value}</span></p>;
 const ShareIcon = () => <Icon iconName="Share" />;
+const ShareMessage = (props: ShareMessageProps) => {
+  const [showModal, setShowModal] = React.useState(false);
+  const link = `${window.location.href}?${SHARE_PARAM}=${btoa(props.score.toString())}`;
+  return (
+    <>
+      <p>
+        <a
+          href="javascript:void(0);"
+          onClick={() => {
+            setShowModal(true);
+            return false;
+          }}
+        >Share <ShareIcon/>
+        </a> your score and challenge a friend
+      </p>
+      <ShareModal href={link} show={showModal} close={() => setShowModal(false)} />
+    </>
+  );
+};
+
+const ChallengerMessage = () => {
+  const scoreParam = getQueryVariable(SHARE_PARAM);
+  const challengerScore = atob(scoreParam);
+  const [showModal, setShowModal] = React.useState(!!scoreParam);
+  return <ShareModal show={showModal} close={() => setShowModal(false)} challengerScore={challengerScore} />;
+};
 
 type AppProps = {};
 interface AppState {
@@ -151,6 +194,7 @@ class App extends React.Component<AppProps, AppState> {
 
     return (
       <div className="app">
+        <ChallengerMessage />
         <h1>Typing Speed Test 🔥</h1>
         <div id="typing-space">
           <div id="source-area">
@@ -194,7 +238,8 @@ class App extends React.Component<AppProps, AppState> {
                 }
               </div>
             </div>
-            <p>Share <ShareIcon/> your score and challenge a friend</p>
+            {showWpmScore && <ShareMessage score={wpmScore} /> }
+            {/* get a link to the current url rather than hardcoding share link (in case website location changes) */}
           </div>
         </div>
       </div>

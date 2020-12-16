@@ -1052,10 +1052,24 @@
     "@uifabric/set-version" "^7.0.23"
     tslib "^1.10.0"
 
+"@fluentui/dom-utilities@^2.0.0-beta.0":
+  version "2.0.0-beta.0"
+  resolved "https://registry.yarnpkg.com/@fluentui/dom-utilities/-/dom-utilities-2.0.0-beta.0.tgz#d019cb3bb2314cff386986a4dd4cbc7323272a5f"
+  dependencies:
+    "@fluentui/set-version" "^8.0.0-beta.0"
+    tslib "^1.10.0"
+
 "@fluentui/keyboard-key@^0.2.12":
   version "0.2.12"
   resolved "https://registry.yarnpkg.com/@fluentui/keyboard-key/-/keyboard-key-0.2.12.tgz#74eddf4657c164193b6c8855746e691af466441a"
   dependencies:
+    tslib "^1.10.0"
+
+"@fluentui/merge-styles@^8.0.0-beta.0":
+  version "8.0.0-beta.0"
+  resolved "https://registry.yarnpkg.com/@fluentui/merge-styles/-/merge-styles-8.0.0-beta.0.tgz#510fc14ceacc66d7952ba0d2b57c59e6183986c8"
+  dependencies:
+    "@fluentui/set-version" "^8.0.0-beta.0"
     tslib "^1.10.0"
 
 "@fluentui/react-compose@^0.19.12":
@@ -1078,6 +1092,15 @@
     "@uifabric/set-version" "^7.0.23"
     "@uifabric/styling" "^7.16.18"
     "@uifabric/utilities" "^7.33.2"
+    tslib "^1.10.0"
+
+"@fluentui/react-hooks@^8.0.0-beta.0":
+  version "8.0.0-beta.0"
+  resolved "https://registry.yarnpkg.com/@fluentui/react-hooks/-/react-hooks-8.0.0-beta.0.tgz#b20c992928b8991a3d4aac06f9bb1c14b8f824b6"
+  dependencies:
+    "@fluentui/react-window-provider" "^2.0.0-beta.0"
+    "@fluentui/set-version" "^8.0.0-beta.0"
+    "@fluentui/utilities" "^8.0.0-beta.0"
     tslib "^1.10.0"
 
 "@fluentui/react-stylesheets@^0.2.4":
@@ -1109,12 +1132,25 @@
     "@uifabric/set-version" "^7.0.23"
     tslib "^1.10.0"
 
+"@fluentui/react-window-provider@^2.0.0-beta.0":
+  version "2.0.0-beta.3"
+  resolved "https://registry.yarnpkg.com/@fluentui/react-window-provider/-/react-window-provider-2.0.0-beta.3.tgz#2e316fafef57e161acd0a9840a689640e1f28ce0"
+  dependencies:
+    "@fluentui/set-version" "^8.0.0-beta.0"
+    tslib "^1.10.0"
+
 "@fluentui/react@^7.153.1":
   version "7.153.1"
   resolved "https://registry.yarnpkg.com/@fluentui/react/-/react-7.153.1.tgz#85528bf99d87e7f4821dc9c008edd523b1cb0405"
   dependencies:
     "@uifabric/set-version" "^7.0.23"
     office-ui-fabric-react "^7.153.1"
+    tslib "^1.10.0"
+
+"@fluentui/set-version@^8.0.0-beta.0":
+  version "8.0.0-beta.0"
+  resolved "https://registry.yarnpkg.com/@fluentui/set-version/-/set-version-8.0.0-beta.0.tgz#6e58a5c081b217aee526424a7d7a1561cb8fa5e9"
+  dependencies:
     tslib "^1.10.0"
 
 "@fluentui/theme@^1.7.0":
@@ -1124,6 +1160,16 @@
     "@uifabric/merge-styles" "^7.19.1"
     "@uifabric/set-version" "^7.0.23"
     "@uifabric/utilities" "^7.33.2"
+    tslib "^1.10.0"
+
+"@fluentui/utilities@^8.0.0-beta.0":
+  version "8.0.0-beta.0"
+  resolved "https://registry.yarnpkg.com/@fluentui/utilities/-/utilities-8.0.0-beta.0.tgz#6db1976d6529c37b104b2272877052c5c70cb461"
+  dependencies:
+    "@fluentui/dom-utilities" "^2.0.0-beta.0"
+    "@fluentui/merge-styles" "^8.0.0-beta.0"
+    "@fluentui/set-version" "^8.0.0-beta.0"
+    prop-types "^15.7.2"
     tslib "^1.10.0"
 
 "@hapi/address@2.x.x":
